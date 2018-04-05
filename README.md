@@ -1,2 +1,2 @@
 # mymessenger
-cs 252 lab-6
+A simple instant messaging web app
