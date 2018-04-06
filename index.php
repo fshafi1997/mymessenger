@@ -1,15 +1,16 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Random Number</title>
+    </head>
+    <body>
+        <p>Generating a random number between 1 and 10:
+            <?php
 
-<!--
-param1=db host
-param2=username
-param3=password
-param4=db name-->
+            echo rand(1, 10);
 
-$db = new mysqli("localhost","fshafi","y92Sle6&","fshafi_messages");
-
-if($db->connect_error){
-    die("Was unable to connect to database");
-} else {
-    die("Connection to database was successfull");
-}
+            ?>
+        </p>
+    </body>
+</html>
