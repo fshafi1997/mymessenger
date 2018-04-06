@@ -2,10 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Random Number</title>
+        <title>CS252 Lab-6</title>
     </head>
     <body>
-        <p>Testing if the database is connected
+        <p>Testing if the database is connected<br />
             <?php
             /*param1=db host
             param2=username
