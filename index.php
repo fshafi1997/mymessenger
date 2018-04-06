@@ -6,7 +6,7 @@ param2=username
 param3=password
 param4=db name-->
 
-$db = new mysqli("localhost","fshafi","uWym1?64","fshafi_messages");
+$db = new mysqli("localhost","fshafi","y92Sle6&","fshafi_messages");
 
 if($db->connect_error){
     die("Was unable to connect to database");
