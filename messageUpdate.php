@@ -8,7 +8,7 @@ $db = new mysqli("localhost","fshafi","y92Sle6&","fshafi_messages");
 
 if($db->connect_error){
     die("Was unable to connect to database". $db->connect_error);
-} 
+}
 
 // whatever set in environment variable will come here
 // using htmlspecialchars to prevent users from putting tags in url
@@ -16,7 +16,7 @@ if($db->connect_error){
 $username = stripslashes(htmlspecialchars($_GET['username']));
 $message = stripslashes(htmlspecialchars($_GET['message']));
 
-// if username of message is empty exit current script
+// if username or message is empty exit current script
 if ($message == "" || $username == "") {
 	die();
 }
