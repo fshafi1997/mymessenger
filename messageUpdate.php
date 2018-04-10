@@ -7,7 +7,7 @@ param4=db name*/
 $db = new mysqli("localhost","fshafi","y92Sle6&","fshafi_messages");
 
 if($db->connect_error){
-    die("Was unable to connect to database");
+    die("Was unable to connect to database". $db->connect_error);
 } 
 
 // whatever set in environment variable will come here
@@ -21,13 +21,26 @@ if ($message == "" || $username == "") {
 	die();
 }
 
-// insert the message into the data base
+/*// insert the message into the data base
 // 1st value id(auto incremented) 2nd value (username) 3rd value (message)
 $result = $db->prepare("INSERT INTO messages VALUES('',?,?)");
 // substituting the question mark "ss" for string username and string message
 $result->bind_param("ss", $username, $message);
-echo "username is $username";
-echo "message is $message";
-$result->execute();
+echo "username is $username\n";
+echo "message is $message\n";
+$result->execute();*/
+
+
+$sql = "INSERT INTO messages (id, username, message) VALUES ('', $username, $message)";
+
+if ($db->query($sql) === TRUE) {
+    echo "New record created successfully\n";
+    echo "username is $username\n";
+    echo "message is $message\n";
+} else {
+    echo "Error: " . $db . "<br>" . $db->error;
+}
+
+$db->close();
 
 ?>
