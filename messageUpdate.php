@@ -26,6 +26,8 @@ if ($message == "" || $username == "") {
 $result = $db->prepare("INSERT INTO messages VALUES('',?,?)");
 // substituting the question mark "ss" for string username and string message
 $result->bind_param("ss", $username, $message);
+echo "username is $username";
+echo "message is $message";
 $result->execute();
 
 ?>
