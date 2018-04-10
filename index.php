@@ -19,7 +19,9 @@
 	.header {
 		width: 100%;
 		height: 30px;
-		border-bottom: 1px solid #CCC;
+		border-style: solid;
+		border-size:2px;
+		border-color: #0a2e68;
 		text-align: center;
 		padding: 15px 0px 5px;
 		font-size: 20px;
@@ -43,7 +45,9 @@
 		height: 50px;
 		position: fixed;
 		bottom: 0px;
-		border-top: 1px solid #CCC;
+		border-style: solid;
+		border-size:2px;
+		border-color: #0a2e68;
 		background-color: #EBEBEB;
 	}
 	#whitebg {
@@ -134,15 +138,15 @@
     <p class="buttonp"><button onclick="chooseusername()">Choose Username</button></p>
 </div>
 <div class="msg-container">
-	<div class="header">Farhan's Messenger</div>
+    <div style="background-color:#607faf; overflow: auto;" class="header">Farhan's Messenger</div>
 	<div class="msg-area" id="msg-area"></div>
-	<div class="bottom"><input type="text" 
-                               name="msginput" 
-                               class="msginput" 
-                               id="msginput" 
-                               onkeydown="if (event.keyCode == 13) sendmsg()" 
-                               value="" 
-                               placeholder="Enter your message here ... (Press return to send the message)">
+	<div style="background-color:#607faf; overflow: auto;" class="bottom"><input type="text" 
+                                                                                 name="msginput" 
+                                                                                 class="msginput" 
+                                                                                 id="msginput" 
+                                                                                 onkeydown="if (event.keyCode == 13) sendmsg()" 
+                                                                                 value="" 
+                                                                                 placeholder="Enter your message here ... (Press return to send the message)">
     </div>
 </div>
 </body>
