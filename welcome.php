@@ -166,7 +166,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 <div class="msg-container">
     <div style="background-color:#607faf; overflow: auto;" class="header">
     Hi, <b><?php echo htmlspecialchars($_SESSION['username']); ?></b>. Welcome to my messenger.
-    <button class="buttonLogout";a href="logout.php" >Sign out</button>
+	<a href="logout.php"><button class="buttonLogout">Sign out</button></a>
     </div>
 	<div class="msg-area" id="msg-area"></div>
 	<div style="background-color:#607faf; overflow: auto;" class="bottom"><input type="text" 
