@@ -9,16 +9,17 @@ $db = new mysqli("localhost","fshafi","y92Sle6&","fshafi_messages");
 if($db->connect_error){
     die("Was unable to connect to database". $db->connect_error);
 }
-else echo "connected to the data base";
+else echo "connected to the data base\n";
 
 // whatever set in environment variable will come here
 // using htmlspecialchars to prevent users from putting tags in url
 // strip slashes used to clean up data remove  \
 $username = $_GET['username'];
-echo $username;
-//$message = stripslashes(htmlspecialchars($_GET['message']));
+echo "$username\n";
+$message = $_GET['message'];
+echo "$message\n";
 
-/*
+
 // if username or message is empty exit current script
 if ($message == "" || $username == "") {
 	die();
@@ -34,16 +35,16 @@ echo "message is $message\n";
 $result->execute();
 
 
-$sql = "INSERT INTO messages (id, username, message) VALUES ('', $username, $message)";
+//$sql = "INSERT INTO messages (id, username, message) VALUES ('', $username, $message)";
 
-if ($db->query($sql) === TRUE) {
+/*if ($db->query($sql) === TRUE) {
     echo "New record created successfully\n";
     echo "username is $username\n";
     echo "message is $message\n";
 } else {
     echo "Error: " . $db . "<br>" . $db->error;
-}
+}*/
 
-$db->close();*/
+//$db->close();
 
 ?>
