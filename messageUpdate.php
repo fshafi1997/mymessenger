@@ -30,7 +30,7 @@ if ($message == "" || $username == "") {
 	die();
 }
 
-$sql = "INSERT INTO messages (id, username, message) VALUES (DEFAULT,$username,$message)";
+/*$sql = "INSERT INTO messages (id, username, message) VALUES (DEFAULT,$username,$message)";
 if (mysqli_query($db, $sql)) {
       echo "New record created successfully";
       echo "<br>";
@@ -41,18 +41,18 @@ if (mysqli_query($db, $sql)) {
 } else {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
-mysqli_close($db);
+mysqli_close($db);*/
 
-/*
+
 // insert the message into the data base
 // 1st value id(auto incremented) 2nd value (username) 3rd value (message)
-$result = $db->prepare("INSERT INTO messages VALUES('',?,?)");
+$result = $db->prepare("INSERT INTO messages VALUES('DEFAULT',?,?)");
 // substituting the question mark "ss" for string username and string message
 $result->bind_param("ss", $username, $message);
 echo "username going in data base is $username";
 echo "";
 echo "message going in data base is $message";
 echo "";
-$result->execute();*/
+$result->execute();
 
 ?>
