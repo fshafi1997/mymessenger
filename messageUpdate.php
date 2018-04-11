@@ -16,10 +16,10 @@ echo "<br>";
 // whatever set in environment variable will come here
 // using htmlspecialchars to prevent users from putting tags in url
 // strip slashes used to clean up data remove  \
-$username = $_GET['username'];
+$username = stripslashes(htmlspecialchars($_GET['username']));
 echo "$username";
 echo "<br>";
-$message = $_GET['message'];
+$message = stripslashes(htmlspecialchars($_GET['message']));
 echo "$message";
 echo "<br>";
 
