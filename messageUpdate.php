@@ -30,7 +30,7 @@ if ($message == "" || $username == "") {
 	die();
 }
 
-$sql = "INSERT INTO `messages`(`id`, `username`, `message`) VALUES (DEFAULT,$username,$message)";
+$sql = "INSERT INTO messages (id, username, message) VALUES (DEFAULT,$username,$message)";
 if (mysqli_query($db, $sql)) {
       echo "New record created successfully";
       echo "<br>";
