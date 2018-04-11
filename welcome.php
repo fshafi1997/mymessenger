@@ -138,7 +138,9 @@
     <p class="buttonp"><button onclick="chooseusername()">Choose Username</button></p>
 </div>
 <div class="msg-container">
-    <div style="background-color:#607faf; overflow: auto;" class="header">Farhan's Messenger</div>
+    <div style="background-color:#607faf; overflow: auto;" class="header">
+    Hi, <b><?php echo htmlspecialchars($_SESSION['username']); ?></b>. Welcome to my messenger.
+    </div>
 	<div class="msg-area" id="msg-area"></div>
 	<div style="background-color:#607faf; overflow: auto;" class="bottom"><input type="text" 
                                                                                  name="msginput" 
