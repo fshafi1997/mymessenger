@@ -22,6 +22,12 @@ if ($message == "" || $username == "") {
 	die();
 }
 
+// checking if environment variables are being put
+if($ip = getenv('username'))
+echo $ip; 
+if($ip = getenv('message'))
+echo $message; 
+
 /*// insert the message into the data base
 // 1st value id(auto incremented) 2nd value (username) 3rd value (message)
 $result = $db->prepare("INSERT INTO messages VALUES('',?,?)");
