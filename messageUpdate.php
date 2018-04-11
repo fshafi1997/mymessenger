@@ -32,20 +32,6 @@ if ($message == "" || $username == "") {
 	die();
 }
 
-/*$sql = "INSERT INTO messages (id, username, message) VALUES (DEFAULT,'$username','$message')";
-
-$retval = mysql_query( $sql, $db );
-
-if($retval) {
-    echo "Success";
-    echo "username going in data base is $username";
-    echo "<br>";
-    echo "message going in data base is $message";
-    echo "<br>";
-} else {
-    echo "Error";
-}*/
-
 
 // insert the message into the data base
 // 1st value id(auto incremented) 2nd value (username) 3rd value (message)
@@ -53,10 +39,5 @@ $result = $db->prepare("INSERT INTO messages VALUES(DEFAULT,?,?)");
 // substituting the question mark "ss" for string username and string message
 $result->bind_param("ss", $username, $message);
 $result->execute();
-
-/*echo "username going in data base is $username";
-echo "";
-echo "message going in data base is $message";
-echo "";*/
 
 ?>
