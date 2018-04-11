@@ -4,18 +4,13 @@
 param2=username
 param3=password
 param4=db name*/
-$db = new mysqli_connect("localhost:3306","fshafi","y92Sle6&","fshafi_messages");
+$db = new mysqli("localhost:3306","fshafi","y92Sle6&","fshafi_messages");
 
-/*if($db->connect_error){
+if($db->connect_error){
     die("Was unable to connect to database". $db->connect_error);
 }
-else echo "connected to the data base","\n";*/
-if (!$db) {
-    die("Connection failed: " . mysqli_connect_error());
-    echo "<br>";
-}
+else echo "Connected successfully";
 
-echo "Connected successfully";
 echo "<br>";
 
 // whatever set in environment variable will come here
