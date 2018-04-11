@@ -102,6 +102,21 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 		width: 150px;
 		margin: 0px auto;
 	}
+	
+	.buttonLogout {
+    background-color: #1f4687;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    }
+    
+    .buttonLogout:hover {
+    background-color: red;
+    }
 
 	.msg {
 		margin: 10px 10px;
@@ -151,6 +166,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 <div class="msg-container">
     <div style="background-color:#607faf; overflow: auto;" class="header">
     Hi, <b><?php echo htmlspecialchars($_SESSION['username']); ?></b>. Welcome to my messenger.
+    <button class="buttonLogout">Logout Button</button>
     </div>
 	<div class="msg-area" id="msg-area"></div>
 	<div style="background-color:#607faf; overflow: auto;" class="bottom"><input type="text" 
