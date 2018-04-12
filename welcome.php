@@ -1,11 +1,11 @@
 <?php
 // Initialize the session
 session_start();
- 
+
 // If session variable is not set it will redirect to login (index) page
-if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-  header("location: index.php");
-  exit;
+if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
+    header("location: index.php");
+    exit;
 }
 ?>
 
@@ -103,20 +103,20 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 		width: 150px;
 		margin: 0px auto;
 	}
-	
+
 	.buttonLogout {
-    background-color: #1f4687;
-    border: none;
-    color: white;
-    padding: 8px 15px;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
+    	background-color: #1f4687;
+    	border: none;
+    	color: white;
+    	padding: 8px 15px;
+    	text-align: center;
+    	font-size: 16px;
+    	border-radius: 10px;
+    	cursor: pointer;
     }
-    
+
     .buttonLogout:hover {
-    background-color: red;
+    	background-color: red;
     }
 
 	.msg {
@@ -170,12 +170,12 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 	<a href="logout.php"><button class="buttonLogout">Sign out</button></a>
     </div>
 	<div class="msg-area" id="msg-area"></div>
-	<div style="background-color:#607faf; overflow: auto;" class="bottom"><input type="text" 
-                                                                                 name="msginput" 
-                                                                                 class="msginput" 
-                                                                                 id="msginput" 
-                                                                                 onkeydown="if (event.keyCode == 13) sendmsg()" 
-                                                                                 value="" 
+	<div style="background-color:#607faf; overflow: auto;" class="bottom"><input type="text"
+                                                                                 name="msginput"
+                                                                                 class="msginput"
+                                                                                 id="msginput"
+                                                                                 onkeydown="if (event.keyCode == 13) sendmsg()"
+                                                                                 value=""
                                                                                  placeholder="Enter your message here ... (Press return to send the message)">
     </div>
 </div>
