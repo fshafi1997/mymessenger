@@ -160,7 +160,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 <body onload="checkcookie(); update();">
 <div id="whitebg"></div>
 <div id="loginbox">
-    <h1>Pick a username fr the chat:</h1>
+    <h1>Pick a username for the chat:</h1>
     <p><input type="text" name="pickusername" id="cusername" placeholder="Pick a username for the chat" class="msginput"></p>
     <p class="buttonp"><button onclick="chooseusername()">Choose Username</button></p>
 </div>
