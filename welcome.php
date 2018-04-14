@@ -158,110 +158,108 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 	</style>
 </head>
 <body onload="checkcookie(); update();">
-<div id="whitebg"></div>
-<div id="loginbox">
-    <h1>Pick a username for the chat:</h1>
-    <p><input type="text" name="pickusername" id="cusername" placeholder="Pick a username for the chat" class="msginput"></p>
-    <p class="buttonp"><button onclick="chooseusername()">Choose Username</button></p>
-</div>
-<div class="msg-container">
-    <div style="background-color:#607faf; overflow: auto;" class="header">
-    Hi, <b><?php echo htmlspecialchars($_SESSION['username']); ?></b>. Welcome to my messenger.
-	<a href="logout.php"><button class="buttonLogout">Sign out</button></a>
-    </div>
-	<div class="msg-area" id="msg-area"></div>
-	<div style="background-color:#607faf; overflow: auto;" class="bottom"><input type="text"
-                                                                                 name="msginput"
-                                                                                 class="msginput"
-                                                                                 id="msginput"
-                                                                                 onkeydown="if (event.keyCode == 13) sendmsg()"
-                                                                                 value=""
-                                                                                 placeholder="Enter your message here ... (Press return to send the message)">
-    </div>
-</div>
+	<div id="whitebg"></div>
+	<div id="loginbox">
+		<h1>Pick a username for the chat:</h1>
+		<p><input type="text" name="pickusername" id="cusername" placeholder="Pick a username for the chat" class="msginput"></p>
+		<p class="buttonp"><button onclick="chooseusername()">Choose Username</button></p>
+	</div>
+	<div class="msg-container">
+		<div style="background-color:#607faf; overflow: auto;" class="header">
+		Hi, <b><?php echo htmlspecialchars($_SESSION['username']); ?></b>. Welcome to my messenger.
+		<a href="logout.php"><button class="buttonLogout">Sign out</button></a>
+		</div>
+		<div class="msg-area" id="msg-area"></div>
+		<div style="background-color:#607faf; overflow: auto;" class="bottom"><input type="text"
+																					name="msginput"
+																					class="msginput"
+																					id="msginput"
+																					onkeydown="if (event.keyCode == 13) sendmsg()"
+																					value=""
+																					placeholder="Enter your message here ... (Press return to send the message)">
+		</div>
+	</div>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 
-// the area for message entry saving in this variable
-var msginput = document.getElementById("msginput");
-var msgarea = document.getElementById("msg-area");
+		// the area for message entry saving in this variable
+		var msginput = document.getElementById("msginput");
+		var msgarea = document.getElementById("msg-area");
 
 
 
-function chooseusername() {
-	// storing the username chosen by the user
-	var user = document.getElementById("cusername").value;
-	// setting the cookie so dosen't ask for again
-	document.cookie="messengerUname=" + user;
-	checkcookie();
-}
+		function chooseusername() {
+			// storing the username chosen by the user
+			var user = document.getElementById("cusername").value;
+			// setting the cookie so dosen't ask for again
+			document.cookie="messengerUname=" + user;
+			checkcookie();
+		}
 
-// login show method
-function showlogin() {
-	document.getElementById("whitebg").style.display = "inline-block";
-	document.getElementById("loginbox").style.display = "inline-block";
-}
+		// login show method
+		function showlogin() {
+			document.getElementById("whitebg").style.display = "inline-block";
+			document.getElementById("loginbox").style.display = "inline-block";
+		}
 
-// login hide method
-function hideLogin() {
-	document.getElementById("whitebg").style.display = "none";
-	document.getElementById("loginbox").style.display = "none";
-}
+		// login hide method
+		function hideLogin() {
+			document.getElementById("whitebg").style.display = "none";
+			document.getElementById("loginbox").style.display = "none";
+		}
 
-// checking if the cookie is set then showing or hiding the choose username for chat
-function checkcookie() {
-	if (document.cookie.indexOf("messengerUname") == -1) {
-		showlogin();
-	} else {
-		hideLogin();
-	}
-}
-
-// method to get the cookie
-function getcookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-    }
-    return "";
-}
-
-// method to send the messages
-function sendmsg() {
-	var message = msginput.value;
-
-	// not allowing blank messages to go in database
-	// every message needs the username and the message itself
-	if (message != "") {
-		// alert(msgarea.innerHTML)
-		// alert(getcookie("messengerUname"))
-
-		var username = getcookie("messengerUname");
-
-		// creating the ajax request
-		var xmlhttp = new XMLHttpRequest();
-
-		xmlhttp.onreadystatechange = function() {
-			// this code will run when we send the request and get the response from the server
-			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				// the message and its formatting appended to the message area
-				msgarea.innerHTML += "<div class=\"msgc\" style=\"margin-bottom: 30px;\"> <div class=\"msg msgfrom\">" + message + "</div> <div class=\"msgarr msgarrfrom\"></div> <div class=\"msgsentby msgsentbyfrom\">Sent by " + username + "</div> </div>";
+		// checking if the cookie is set then showing or hiding the choose username for chat
+		function checkcookie() {
+			if (document.cookie.indexOf("messengerUname") == -1) {
+				showlogin();
+			} else {
+				hideLogin();
 			}
 		}
 
-		// sending the request
-		// param1 = type of request param2 = address of page to open 
-		// passing the username and message in param 2
-		xmlhttp.open("GET","messageUpdate.php?username=" + username + "&message=" + message,true);
-		xmlhttp.send();
-	}
+		// method to get the cookie
+		function getcookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i=0; i<ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0)==' ') c = c.substring(1);
+				if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+			}
+			return "";
+		}
 
-}
+		// method to send the messages
+		function sendmsg() {
+			var message = msginput.value;
 
-</script>
+			// not allowing blank messages to go in database
+			// every message needs the username and the message itself
+			if (message != "") {
+				// alert(msgarea.innerHTML)
+				// alert(getcookie("messengerUname"))
 
+				var username = getcookie("messengerUname");
+
+				// creating the ajax request
+				var xmlhttp = new XMLHttpRequest();
+
+				xmlhttp.onreadystatechange = function() {
+					// this code will run when we send the request and get the response from the server
+					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						// the message and its formatting appended to the message area
+						msgarea.innerHTML += "<div class=\"msgc\" style=\"margin-bottom: 30px;\"> <div class=\"msg msgfrom\">" + message + "</div> <div class=\"msgarr msgarrfrom\"></div> <div class=\"msgsentby msgsentbyfrom\">Sent by " + username + "</div> </div>";
+					}
+				}
+
+				// sending the request
+				// param1 = type of request param2 = address of page to open 
+				// passing the username and message in param 2
+				xmlhttp.open("GET","messageUpdate.php?username=" + username + "&message=" + message,true);
+				xmlhttp.send();
+			}
+
+		}
+	</script>
 </body>
 </html>
