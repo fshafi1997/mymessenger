@@ -182,6 +182,10 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 
 <script type="text/javascript">
 
+// the area for message entry saving in this variable
+var msginput = document.getElementById("msginput");
+
+
 function chooseusername() {
 	// storing the username chosen by the user
 	var user = document.getElementById("cusername").value;
@@ -209,6 +213,49 @@ function checkcookie() {
 	} else {
 		hideLogin();
 	}
+}
+
+// method to get the cookie
+function getcookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+
+// method to send the messages
+function sendmsg() {
+	var message = msginput.value;
+
+	// not allowing blank messages to go in database
+	// every message needs the username and the message itself
+	if (message != "") {
+		// alert(msgarea.innerHTML)
+		// alert(getcookie("messengerUname"))
+
+		var username = getcookie("messengerUname");
+
+		// creating the ajax request
+		var xmlhttp = new XMLHttpRequest();
+
+		xmlhttp.onreadystatechange = function() {
+			// this code will run when we send the request and get the response from the server
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				console.log(xmlhttp.responseText);
+			}
+		}
+
+		// sedning the request
+		// param1 = type of request param2 = address of page to open 
+		// passing the username and message in param 2
+		xmlhttp.open("GET","messageUpdate.php?username=" + username + "&message=" + message,true);
+		xmlhttp.send();
+	}
+
 }
 
 </script>
