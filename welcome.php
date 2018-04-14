@@ -183,9 +183,11 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 <script type="text/javascript">
 
 function chooseusername() {
+	// storing the username chosen by the user
 	var user = document.getElementById("cusername").value;
-	document.cookie="messengerUname=" + user
-	checkcookie()
+	// setting the cookie so dosen't ask for again
+	document.cookie="messengerUname=" + user;
+	checkcookie();
 }
 
 // login show method
