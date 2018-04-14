@@ -184,6 +184,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 
 // the area for message entry saving in this variable
 var msginput = document.getElementById("msginput");
+var msgarea = document.getElementById("msg-area");
+
 
 
 function chooseusername() {
@@ -245,11 +247,12 @@ function sendmsg() {
 		xmlhttp.onreadystatechange = function() {
 			// this code will run when we send the request and get the response from the server
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				console.log(xmlhttp.responseText);
+				// the message and its formatting 
+				msgarea.innerHTML += "<div class=\"msgc\" style=\"margin-bottom: 30px;\"> <div class=\"msg msgfrom\">" + message + "</div> <div class=\"msgarr msgarrfrom\"></div> <div class=\"msgsentby msgsentbyfrom\">Sent by " + username + "</div> </div>";
 			}
 		}
 
-		// sedning the request
+		// sending the request
 		// param1 = type of request param2 = address of page to open 
 		// passing the username and message in param 2
 		xmlhttp.open("GET","messageUpdate.php?username=" + username + "&message=" + message,true);
