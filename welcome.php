@@ -179,5 +179,37 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                                                                                  placeholder="Enter your message here ... (Press return to send the message)">
     </div>
 </div>
+
+<script type="text/javascript">
+
+function chooseusername() {
+	var user = document.getElementById("cusername").value;
+	document.cookie="messengerUname=" + user
+	checkcookie()
+}
+
+// login show method
+function showlogin() {
+	document.getElementById("whitebg").style.display = "inline-block";
+	document.getElementById("loginbox").style.display = "inline-block";
+}
+
+// login hide method
+function hideLogin() {
+	document.getElementById("whitebg").style.display = "none";
+	document.getElementById("loginbox").style.display = "none";
+}
+
+// checking if the cookie is set then showing or hiding the choose username for chat
+function checkcookie() {
+	if (document.cookie.indexOf("messengerUname") == -1) {
+		showlogin();
+	} else {
+		hideLogin();
+	}
+}
+
+</script>
+
 </body>
 </html>
