@@ -21,4 +21,12 @@ echo "<br>";
 $result = $db->prepare("SELECT * FROM messages");
 $result->execute();
 
+// saving the result form database
+$result = $result->get_result();
+
+echo "<pre>";
+while ($r = $result->fetch_row()) {
+	print_r($r);
+}
+
 ?>
