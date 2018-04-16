@@ -24,9 +24,14 @@ $result->execute();
 // saving the result form database
 $result = $result->get_result();
 
-echo "<pre>";
+// \\ this is delimeter to make parsing easier
 while ($r = $result->fetch_row()) {
-	print_r($r);
+    // username
+    echo $r[1];
+    echo "\\";
+    // message
+	echo $r[2];
+	echo "\n";
 }
 
 ?>
