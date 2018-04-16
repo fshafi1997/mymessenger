@@ -231,7 +231,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 
 		// method to update the messages 
 		function update() {
-			
+
 		}
 
 		// method to send the messages
@@ -241,8 +241,6 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 			// not allowing blank messages to go in database
 			// every message needs the username and the message itself
 			if (message != "") {
-				// alert(msgarea.innerHTML)
-				// alert(getcookie("messengerUname"))
 
 				var username = getcookie("messengerUname");
 
