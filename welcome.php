@@ -229,6 +229,11 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 			return "";
 		}
 
+		// method to update the messages 
+		function update() {
+			
+		}
+
 		// method to send the messages
 		function sendmsg() {
 			var message = msginput.value;
