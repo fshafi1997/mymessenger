@@ -1,25 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-        <title>CS252 Lab-6</title>
-    </head>
-    <body>
-        <p>Testing if the database is connected<br />
-            <?php
-            /*param1=db host
-            param2=username
-            param3=password
-            param4=db name*/
-            $db = new mysqli("localhost","fshafi","y92Sle6&","fshafi_messages");
+<?php
+/*param1=db host
+param2=username
+param3=password
+param4=db name*/
+$db = new mysqli("localhost:3306","fshafi","y92Sle6&","fshafi_messages");
 
-            if($db->connect_error){
-                die("Was unable to connect to database");
-            } else {
-            die("Connection to database was successfull");
-            }
-            
-            ?>
-        </p>
-    </body>
-</html>
+if($db->connect_error){
+    die("Was unable to connect to database". $db->connect_error);
+}
+else echo "Connected successfully";
+
+echo "<br>";
+
+$username = stripslashes(htmlspecialchars($_GET['username']));
+echo "$username";
+echo "<br>";
+
+
+// get all from messages
+$result = $db->prepare("SELECT * FROM messages");
+$result->execute();
+
+?>
