@@ -249,6 +249,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 						// the message and its formatting appended to the message area
 						msgarea.innerHTML += "<div class=\"msgc\" style=\"margin-bottom: 30px;\"> <div class=\"msg msgfrom\">" + message + "</div> <div class=\"msgarr msgarrfrom\"></div> <div class=\"msgsentby msgsentbyfrom\">Sent by " + username + "</div> </div>";
+						msginput.value = "";
 					}
 				}
 
