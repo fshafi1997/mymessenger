@@ -8,7 +8,6 @@ $db = new mysqli("localhost:3306","fshafi","y92Sle6&","fshafi_messages");
 if($db->connect_error){
     die("Was unable to connect to database". $db->connect_error);
 }
-else echo "Connected successfully";
 
 echo "<br>";
 
