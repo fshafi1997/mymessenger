@@ -40,7 +40,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 		font-weight: normal;
 	}
 	.msg-area {
-		height: calc(100% - 102px);
+		height: calc(100% - 110px);
 		width: 100%;
 		background-color:#FFF;
 		overflow-y: scroll;
