@@ -120,6 +120,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
     }
 
 	.msg {
+		border-radius: 10px;
 		margin: 10px 10px;
 		background-color: #f1f0f0;
 		max-width: calc(45% - 20px);
@@ -128,11 +129,13 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 		font-size: 14px;
 	}
 	.msgfrom {
+		border-radius: 10px;
 		background-color: #0084ff;
 		color: #FFF;
 		margin: 10px 10px 10px 55%;
 	}
 	.msgarr {
+		border-radius: 10px;
 		width: 0;
 		height: 0;
 		border-left: 8px solid transparent;
@@ -142,16 +145,19 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 		margin: -12px 0px 0px 45px;
 	}
 	.msgarrfrom {
+		border-radius: 10px;
 		border-bottom: 8px solid #0084ff;
 		float: right;
 		margin-right: 45px;
 	}
 	.msgsentby {
+		border-radius: 10px;
 		color: #8C8C8C;
 		font-size: 12px;
 		margin: 4px 0px 0px 10px;
 	}
 	.msgsentbyfrom {
+		border-radius: 10px;
 		float: right;
 		margin-right: 12px;
 	}
