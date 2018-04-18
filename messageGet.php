@@ -9,11 +9,8 @@ if($db->connect_error){
     die("Was unable to connect to database". $db->connect_error);
 }
 
-echo "<br>";
 
 $username = stripslashes(htmlspecialchars($_GET['username']));
-echo "$username";
-echo "<br>";
 
 
 // get all from messages

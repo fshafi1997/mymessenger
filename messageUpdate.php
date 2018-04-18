@@ -10,24 +10,17 @@ if($db->connect_error){
     die("Was unable to connect to database". $db->connect_error);
 }
 
-echo "<br>";
 
 // whatever set in environment variable will come here
 // using htmlspecialchars to prevent users from putting tags in url
 // strip slashes used to clean up data remove  \
 $username = stripslashes(htmlspecialchars($_GET['username']));
-echo "$username";
-echo "<br>";
 $message = stripslashes(htmlspecialchars($_GET['message']));
-echo "$message";
-echo "<br>";
 
 
 
 // if username or message is empty exit current script
 if ($message == "" || $username == "") {
-    echo "I died";
-    echo "<br>";
 	die();
 }
 
