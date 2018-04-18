@@ -231,7 +231,41 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 
 		// method to update the messages 
 		function update() {
+			var xmlhttp=new XMLHttpRequest();
+			var username = getcookie("messengerUname");
+			// output of all the messages
+			var output = "";
 
+			xmlhttp.onreadystatechange=function() {
+			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+				// splitting individual messages
+				var response = xmlhttp.responseText.split("\n")
+				// number messages retrieved from db
+				var rl = response.length
+				var item = "";
+				for (var i = 0; i < rl; i++) {
+					// splitting username and message
+					item = response[i].split("\\")
+					// undefined is blank message
+					if (item[1] != undefined) {
+						// show blue message else show grey
+						if (item[0] == username) {
+							output += "<div class=\"msgc\" style=\"margin-bottom: 30px;\"> <div class=\"msg msgfrom\">" + item[1] + "</div> <div class=\"msgarr msgarrfrom\"></div> <div class=\"msgsentby msgsentbyfrom\">Sent by " + item[0] + "</div> </div>";
+						} else {
+							output += "<div class=\"msgc\"> <div class=\"msg\">" + item[1] + "</div> <div class=\"msgarr\"></div> <div class=\"msgsentby\">Sent by " + item[0] + "</div> </div>";
+						}
+					}
+				}
+
+				// filling screen with the messages
+				msgarea.innerHTML = output;
+				// if scrolling the auto keep at bottom
+				msgarea.scrollTop = msgarea.scrollHeight;
+
+			}
+		}
+	      xmlhttp.open("GET","messageGet.php?username=" + username,true);
+	      xmlhttp.send();
 		}
 
 		// method to send the messages
