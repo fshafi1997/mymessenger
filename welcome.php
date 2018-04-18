@@ -161,7 +161,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 	<div id="whitebg"></div>
 	<div id="loginbox">
 		<h1>Pick a username for the chat:</h1>
-		<p><input type="text" name="pickusername" id="cusername" placeholder="Pick a username for the chat" class="msginput"></p>
+		<p><input type="text" name="pickusername" id="cusername" placeholder="Pick a username for the chat (atleast 4 characters)" class="msginput"></p>
 		<p class="buttonp"><button onclick="chooseusername()">Choose Username</button></p>
 	</div>
 	<div class="msg-container">
@@ -192,13 +192,18 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 			// storing the username chosen by the user
 			var user = document.getElementById("cusername").value;
 			// setting the cookie so dosen't ask for again
-			if (user){
+
+			// set the login if username not accepted
+			var myvar = <?php echo htmlspecialchars($_SESSION['username']); ?>;
+			
+			if(user.length > 4){
 				document.cookie="messengerUname=" + user;
 				checkcookie();
+			} else {
+				document.cookie="messengerUname=" + myvar;
+				checkcookie();
 			}
-			else {
-				showlogin();
-			}
+			
 		}
 
 		// login show method
