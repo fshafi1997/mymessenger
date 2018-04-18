@@ -193,15 +193,11 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 			var user = document.getElementById("cusername").value;
 			// setting the cookie so dosen't ask for again
 
-			// set the login if username not accepted
-			var myvar = <?php echo htmlspecialchars($_SESSION['username']); ?>;
-			
-			if(user.length > 4){
+			if(user){
 				document.cookie="messengerUname=" + user;
 				checkcookie();
-			} else {
-				document.cookie="messengerUname=" + myvar;
-				checkcookie();
+			} else { 
+				showlogin();
 			}
 			
 		}
