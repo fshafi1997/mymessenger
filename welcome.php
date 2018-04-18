@@ -334,7 +334,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
     // for auto updating
     setInterval(function () {
         update()
-    }, 1500);
+    }, 500);
 </script>
 </body>
 </html>
