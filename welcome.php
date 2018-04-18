@@ -298,6 +298,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 			}
 
 		}
+		// for auto updating
+		setInterval(function(){ update() }, 2500);
 	</script>
 </body>
 </html>
