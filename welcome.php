@@ -221,8 +221,16 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         // setting the cookie so dosen't ask for again
 
         if (user) {
-            var user = "messengerUname=" + user;
-            checkUserExist(user);
+            var user2 = "messengerUname=" + user;
+            if(isset($_COOKIE['messengerUname']) && $_COOKIE['messengerUname']== user ) {
+                checkUname(user);
+                echo 'YES!';
+            }
+            else {
+                document.cookie = "messengerUname=" + user;
+                checkcookie();
+                echo 'NO!';
+            }
             /*document.cookie = "messengerUname=" + user;
             checkcookie();*/
         } else {
@@ -234,21 +242,6 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         if(value.trim()=="") {
             document.getElementById('errorname').innerHTML="Can not pick empty username";  
         }    
-    }
-
-    function checkUserExist(value) {
-        var myCookie = getcookie(value);
-
-        if (myCookie == null) {
-            // do cookie doesn't exist stuff;
-            document.cookie = value;
-            checkcookie();
-        }
-        else {
-            // do cookie exists stuff
-            checkUname(value);
-            showlogin();
-        }
     }
 
     function checkUname(value) {
