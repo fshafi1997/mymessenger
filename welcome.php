@@ -184,7 +184,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 <div id="loginbox">
     <h1>Pick a username for the chat:</h1>
     <p><input type="text" name="pickusername" id="cusername"
-              placeholder="Pick a username for the chat" class="msginput"></p>
+              placeholder="Pick a username for the chat" class="msginput" onblur="check(this.value)"></p>
+              <span id="errorname">    </span>
     <p class="buttonp">
         <button onclick="chooseusername()">Choose Username</button>
     </p>
@@ -223,14 +224,14 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             document.cookie = "messengerUname=" + user;
             checkcookie();
         } else {
-            popupFunc();
             showlogin();
         }
     }
 
-    function popupFunc() {
-        var popup = document.getElementById("myPopup");
-        popup.classList.toggle("show");
+    function check(value) {
+        if(value.trim()=="") {
+            document.getElementById('errorname').innerHTML="Can not pick empty username";  
+        }    
     }
 
     // login show method
