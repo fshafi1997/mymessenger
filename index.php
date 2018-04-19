@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         .wrapper{ width: 350px; padding: 20px; }
     </style>
 </head>
-<body>
+<body background="backgroundW.jpg">
     <div class="wrapper" style="margin: 0px auto;">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
