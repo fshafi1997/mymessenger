@@ -219,13 +219,29 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         // storing the username chosen by the user
         var user = document.getElementById("cusername").value;
         // setting the cookie so dosen't ask for again
+        
+        var toPass = "messengerUname=" + user;
 
         if (user) {
-            document.cookie = "messengerUname=" + user;
-            checkcookie();
+            if (listSetCookies(toPass)){
+                document.cookie = "messengerUname=" + user;
+                checkcookie();
+            }
+            else showlogin();
         } else {
             showlogin();
         }
+    }
+
+    function listSetCookies(value) {
+        var theCookies = document.cookie.split(';');
+        var aString = '';
+        for (var i = 1 ; i <= theCookies.length; i++) {
+            aString += i + ' ' + theCookies[i-1] + "\n";
+        }
+        if (aString.indexOf(value) == -1){
+            return "";
+        } else return aString;
     }
 
     function check(value) {
