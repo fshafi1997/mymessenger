@@ -101,7 +101,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Sign Up</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
-        body{ font: 14px sans-serif; }
+        body{ font: 14px sans-serif;
+            background-image: url("backgroundW.jpg");
+            /* Full height */
+            height: 100%; 
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; }
         .wrapper{ width: 350px; padding: 20px; }
         .bg {
             /* The image used */
@@ -118,7 +125,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
-<div class="bg">
     <div class="wrapper" style="margin: 0px auto;">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
@@ -144,7 +150,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <p>Already have an account? <a href="index.php">Login here</a>.</p>
         </form>
-    </div> 
-</div>   
+    </div>  
 </body>
 </html>

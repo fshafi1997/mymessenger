@@ -81,15 +81,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
-        body{ font: 14px sans-serif; }
+        body{ font: 14px sans-serif;
+            background-image: url("backgroundW.jpg");
+            /* Full height */
+            height: 100%; 
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; }
         .wrapper{ width: 350px; padding: 20px; }
         .bg {
             /* The image used */
             background-image: url("backgroundW.jpg");
-
             /* Full height */
             height: 100%; 
-
             /* Center and scale the image nicely */
             background-position: center;
             background-repeat: no-repeat;
@@ -98,7 +103,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
-<div class="bg">
     <div class="wrapper" style="margin: 0px auto;">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
@@ -118,7 +122,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
         </form>
-    </div> 
-</div>   
+    </div>  
 </body>
 </html>
