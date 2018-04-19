@@ -219,21 +219,15 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         /* to hide or show pop up */
         .popup .show {
             visibility: visible;
-            -webkit-animation: fadeIn 1s;
-            animation: fadeIn 1s;
-        }
-
-        /* to hide the popup */
-        #hideMe {
-        -moz-animation: cssAnimation 0s ease-in 5s forwards;
-        /* Firefox */
-        -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-        /* Safari and Chrome */
-        -o-animation: cssAnimation 0s ease-in 5s forwards;
-        /* Opera */
-        animation: cssAnimation 0s ease-in 5s forwards;
-        -webkit-animation-fill-mode: forwards;
-        animation-fill-mode: forwards;
+            -moz-animation: cssAnimation 0s ease-in 5s forwards;
+            /* Firefox */
+            -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+            /* Safari and Chrome */
+            -o-animation: cssAnimation 0s ease-in 5s forwards;
+            /* Opera */
+            animation: cssAnimation 0s ease-in 5s forwards;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
         }
 
         @keyframes cssAnimation {
@@ -307,6 +301,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             document.cookie = "messengerUname=" + user;
             checkcookie();
         } else {
+            popupFunc();
             showlogin();
         }
     }
