@@ -105,7 +105,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         .wrapper{ width: 350px; padding: 20px; }
     </style>
 </head>
-<body>
+<body background="backgroundW.jpg">
     <div class="wrapper" style="margin: 0px auto;">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
