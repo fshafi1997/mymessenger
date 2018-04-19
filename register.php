@@ -103,9 +103,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }
+        .bg {
+            /* The image used */
+            background-image: url("backgroundW.jpg");
+
+            /* Full height */
+            height: 100%; 
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
     </style>
 </head>
-<body background="backgroundW.jpg">
+<body>
+<div class="bg">
     <div class="wrapper" style="margin: 0px auto;">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
@@ -131,6 +144,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <p>Already have an account? <a href="index.php">Login here</a>.</p>
         </form>
-    </div>    
+    </div> 
+</div>   
 </body>
 </html>
