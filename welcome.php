@@ -299,8 +299,6 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 
                 // filling screen with the messages
                 msgarea.innerHTML = output;
-                // if scrolling the auto keep at bottom
-                msgarea.scrollTop = msgarea.scrollHeight;
 
             }
         }
@@ -336,6 +334,8 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             xmlhttp.open("GET", "messageUpdate.php?username=" + username + "&message=" + message, true);
             xmlhttp.send();
         }
+        // if scrolling the auto keep at bottom
+        msgarea.scrollTop = msgarea.scrollHeight;
 
     }
 
