@@ -46,7 +46,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         .msg-area {
             height: calc(100% - 110px);
             width: 100%;
-            background-color: #FFF;
+            background-color: #8297ba;
             overflow-y: scroll;
         }
 
