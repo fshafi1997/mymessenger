@@ -221,8 +221,10 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
         // setting the cookie so dosen't ask for again
 
         if (user) {
-            document.cookie = "messengerUname=" + user;
-            checkcookie();
+            var user = "messengerUname=" + user;
+            checkUserExist(user);
+            /*document.cookie = "messengerUname=" + user;
+            checkcookie();*/
         } else {
             showlogin();
         }
@@ -231,6 +233,27 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
     function check(value) {
         if(value.trim()=="") {
             document.getElementById('errorname').innerHTML="Can not pick empty username";  
+        }    
+    }
+
+    function checkUserExist(value) {
+        var myCookie = getcookie(value);
+
+        if (myCookie == null) {
+            // do cookie doesn't exist stuff;
+            document.cookie = value;
+            checkcookie();
+        }
+        else {
+            // do cookie exists stuff
+            checkUname(value);
+            showlogin();
+        }
+    }
+
+    function checkUname(value) {
+        if(value.trim()=="") {
+            document.getElementById('errorname').innerHTML="User name already active in chat pick something else";  
         }    
     }
 
