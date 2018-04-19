@@ -81,9 +81,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
+        html{
+            height: 100%;
+        }
         body{ font: 14px sans-serif;
             background-image: url("backgroundW.jpg");
             /* Full height */
+            min-height: 100%;
             height: 100%; 
             /* Center and scale the image nicely */
             background-position: center;
