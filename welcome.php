@@ -177,84 +177,6 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             float: right;
             margin-right: 12px;
         }
-
-        .popup {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        /* The actual popup */ 
-        .popup .popuptext {
-            visibility: hidden;
-            width: 160px;
-            background-color: #cc2208;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 8px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -80px;
-        }
-
-        /* Popup arrow */
-        .popup .popuptext::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #555 transparent transparent transparent;
-        }
-
-        /* to hide or show pop up */
-        .popup .show {
-            visibility: visible;
-            -moz-animation: cssAnimation 0s ease-in 5s forwards;
-            /* Firefox */
-            -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-            /* Safari and Chrome */
-            -o-animation: cssAnimation 0s ease-in 5s forwards;
-            /* Opera */
-            animation: cssAnimation 0s ease-in 5s forwards;
-            -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-        }
-
-        @keyframes cssAnimation {
-            to {
-                width:0;
-                height:0;
-                overflow:hidden;
-            }
-        }
-        @-webkit-keyframes cssAnimation {
-            to {
-                width:0;
-                height:0;
-                visibility:hidden;
-            }
-        }
-
-        /* Add animation (fade in the popup) */
-        @-webkit-keyframes fadeIn {
-            from {opacity: 0;} 
-            to {opacity: 1;}
-        }
-
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity:1 ;}
-        }
     </style>
 </head>
 <body onload="checkcookie(); update();">
@@ -262,7 +184,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 <div id="loginbox">
     <h1>Pick a username for the chat:</h1>
     <p><input type="text" name="pickusername" id="cusername"
-              placeholder="Pick a username for the chat (atleast 4 characters)" class="msginput"></p>
+              placeholder="Pick a username for the chat" class="msginput"></p>
     <p class="buttonp">
         <button onclick="chooseusername()">Choose Username</button>
     </p>
