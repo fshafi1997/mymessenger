@@ -307,9 +307,6 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
             document.cookie = "messengerUname=" + user;
             checkcookie();
         } else {
-            <div class="popup" id='hideMe' onload="popupFunc()">
-            <span class="popuptext" id="myPopup">Must enter a username to continue</span>
-            </div>
             showlogin();
         }
     }
