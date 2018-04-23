@@ -201,7 +201,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
     <div style="background-color:#607faf; overflow: auto;" class="bottom"><input type="text"
                                                                                  name="msginput"
                                                                                  class="msginput"
-                                                                                 maxlength="120"
+                                                                                 maxlength="70"
                                                                                  id="msginput"
                                                                                  onkeydown="if (event.keyCode == 13) sendmsg()"
                                                                                  value=""
